@@ -142,7 +142,17 @@ public class VentanaPrincipal {
 	 * Método que inicializa todos los lísteners que necesita inicialmente el programa
 	 */
 	public void inicializarListeners(){
-		
+		// ddar loistener a los otones para que se abran casillas.
+
+		for (int i = 0; i < botonesJuego.length; i++) {
+			for (int j = 0; j < botonesJuego.length; j++) {
+				botonesJuego[i][j].addActionListener((e) ->{
+					
+				});
+
+			}
+		}
+
 	}
 	
 	
@@ -160,6 +170,18 @@ public class VentanaPrincipal {
 	 */
 	public void mostrarNumMinasAlrededor(int i , int j) {
 		//TODO
+
+// seleccionar el panel i j correspondiente, eliminar todos su componentes, asi elimiamos lo que hay dentro (buscar intenert)
+// añadimos un jlabel centrado no editable y con el numero de minas al rededor, de donde las saco? estan almacenadas en la matriz, el numero de minas se saca de controlJuego del metodo getMinasAlrededor
+		panelesJuego[i][j].remove(botonesJuego[i][j]);
+		JLabel numeroMinasAlrededor = new JLabel();
+
+		numeroMinasAlrededor.setHorizontalAlignment(SwingConstants.HORIZONTAL);
+		numeroMinasAlrededor.setText(" " + juego.getMinasAlrededor(i, j));
+		numeroMinasAlrededor.setForeground(correspondenciaColores[juego.getMinasAlrededor(i, j)]);
+		
+		panelesJuego[i][j].add(numeroMinasAlrededor);
+		refrescarPantalla();
 	}
 	
 	
@@ -170,13 +192,16 @@ public class VentanaPrincipal {
 	 */
 	public void mostrarFinJuego(boolean porExplosion) {
 		//TODO
+
+		
+		
 	}
 
 	/**
 	 * Método que muestra la puntuación por pantalla.
 	 */
 	public void actualizarPuntuacion() {
-		//TODO
+		pantallaPuntuacion.setText("" + juego.getPuntuacion());
 	}
 	
 	/**
@@ -204,7 +229,4 @@ public class VentanaPrincipal {
 		inicializarComponentes();	
 		inicializarListeners();		
 	}
-
-
-
 }

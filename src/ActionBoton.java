@@ -14,7 +14,7 @@ public class ActionBoton implements ActionListener{
 	
 
 	public ActionBoton() {
-		//TODO
+
 	}
 	
 	/**
