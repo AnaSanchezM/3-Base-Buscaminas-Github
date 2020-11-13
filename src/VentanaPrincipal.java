@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 
 /**
  * Ventana principal del Buscaminas
- * @author {Rellenar por el alumno}
+ * @author Ana Sanchez Miguel
  */
 public class VentanaPrincipal {
 
@@ -67,6 +67,10 @@ public class VentanaPrincipal {
 		
 		
 		botonEmpezar = new JButton("Go!");
+
+
+
+
 		pantallaPuntuacion = new JTextField("0");
 		pantallaPuntuacion.setEditable(false);
 		pantallaPuntuacion.setHorizontalAlignment(SwingConstants.CENTER);
@@ -142,16 +146,21 @@ public class VentanaPrincipal {
 	 * Método que inicializa todos los lísteners que necesita inicialmente el programa
 	 */
 	public void inicializarListeners(){
-		// ddar loistener a los otones para que se abran casillas.
+		// ddar listener a los botones para que se abran casillas.
 
 		for (int i = 0; i < botonesJuego.length; i++) {
 			for (int j = 0; j < botonesJuego.length; j++) {
-				botonesJuego[i][j].addActionListener((e) ->{
-					
-				});
-
+				
+				botonesJuego[i][j].addActionListener(new ActionBoton(this, i, j));
+				
 			}
 		}
+
+		// BOTON EMPEZAR, GO
+
+		botonEmpezar.addActionListener((e)->{
+			
+		});
 
 	}
 	
@@ -193,8 +202,17 @@ public class VentanaPrincipal {
 	public void mostrarFinJuego(boolean porExplosion) {
 		//TODO
 
-		
-		
+		if(!porExplosion){
+			JOptionPane.showMessageDialog(ventana, "FIN DE JUEGO, HAS GANADO!!!");
+
+		} else {
+			JOptionPane.showMessageDialog(ventana, "HAS PERDIDO!!!");
+		}
+		for (int i = 0; i < botonesJuego.length; i++) {
+			for (int j = 0; j < botonesJuego.length; j++) {
+				botonesJuego[i][j].setEnabled(false);
+			}
+		}
 	}
 
 	/**
