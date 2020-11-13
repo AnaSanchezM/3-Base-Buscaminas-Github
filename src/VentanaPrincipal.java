@@ -159,7 +159,19 @@ public class VentanaPrincipal {
 		// BOTON EMPEZAR, GO
 
 		botonEmpezar.addActionListener((e)->{
-			
+			for (int i = 0; i < botonesJuego.length; i++) {
+				for (int j = 0; j < botonesJuego.length; j++) {
+					panelesJuego[i][j].remove(botonesJuego[i][j]);
+
+				}
+			}
+
+			for (int i = 0; i < botonesJuego.length; i++) {
+				for (int j = 0; j < botonesJuego.length; j++) {
+					panelesJuego[i][j].add(botonesJuego[i][j]);
+					
+				}
+			}
 		});
 
 	}
