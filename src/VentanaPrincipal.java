@@ -148,9 +148,8 @@ public class VentanaPrincipal {
 	public void inicializarListeners(){
 		// ddar listener a los botones para que se abran casillas.
 
-		for (int i = 0; i < botonesJuego.length; i++) {
-			for (int j = 0; j < botonesJuego.length; j++) {
-				
+		for (int i = 0; i < panelesJuego.length; i++) {
+			for (int j = 0; j < panelesJuego.length; j++) {
 				botonesJuego[i][j].addActionListener(new ActionBoton(this, i, j));
 				
 			}
@@ -161,19 +160,13 @@ public class VentanaPrincipal {
 		botonEmpezar.addActionListener((e)->{
 			for (int i = 0; i < botonesJuego.length; i++) {
 				for (int j = 0; j < botonesJuego.length; j++) {
-					panelesJuego[i][j].remove(botonesJuego[i][j]);
+					botonesJuego[i][j].setEnabled(true);
 
 				}
 			}
-
-			for (int i = 0; i < botonesJuego.length; i++) {
-				for (int j = 0; j < botonesJuego.length; j++) {
-					panelesJuego[i][j].add(botonesJuego[i][j]);
-					
-				}
-			}
+			juego.depurarTablero();
+			juego.inicializarPartida();
 		});
-
 	}
 	
 	
