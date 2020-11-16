@@ -158,7 +158,7 @@ public class VentanaPrincipal {
 		// BOTON EMPEZAR, GO
 
 		botonEmpezar.addActionListener((e)->{
-			//refrescarPantalla();
+			refrescarPantalla();
 			for (int i = 0; i < panelesJuego.length; i++) {
 				for (int j = 0; j < panelesJuego.length; j++) {
 					panelesJuego[i][j].removeAll();
