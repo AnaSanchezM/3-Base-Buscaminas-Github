@@ -158,14 +158,20 @@ public class VentanaPrincipal {
 		// BOTON EMPEZAR, GO
 
 		botonEmpezar.addActionListener((e)->{
-			for (int i = 0; i < botonesJuego.length; i++) {
-				for (int j = 0; j < botonesJuego.length; j++) {
-					botonesJuego[i][j].setEnabled(true);
-
+			//refrescarPantalla();
+			for (int i = 0; i < panelesJuego.length; i++) {
+				for (int j = 0; j < panelesJuego.length; j++) {
+					panelesJuego[i][j].removeAll();
 				}
 			}
-			juego.depurarTablero();
+			for (int i = 0; i < panelesJuego.length; i++) {
+				for (int j = 0; j < panelesJuego.length; j++) {
+					panelesJuego[i][j].add(botonesJuego[i][j]);
+					botonesJuego[i][j].setEnabled(true);
+				}
+			}
 			juego.inicializarPartida();
+			actualizarPuntuacion();
 		});
 	}
 	
