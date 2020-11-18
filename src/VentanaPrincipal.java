@@ -188,9 +188,17 @@ public class VentanaPrincipal {
 	 * @param i: posición vertical de la celda.
 	 * @param j: posición horizontal de la celda.
 	 */
+
+	 /**
+	  * En este método, queremos saber el número de minas que hay alrededor de la celda que seleccionamos,
+	  * Eliminamos los componentes de los paneles, añadimos las minas que hay alrededor en un label ya que no son editables, 
+	  * Lo centramos y le damos el correspondiente color a cada número, ese número de minas lo sacamos del método getMinasAlrededor() de la clase ControlJuego. A continuación, añadimos a los paneles la variable que almacena las minas alrededor y refrescamos la pantalla.
+	  * @param i el valor de la i, es la posición vertical de la celda.
+	  * @param j el valor de j, es la posición horizontal de la celda.
+	  */
 	public void mostrarNumMinasAlrededor(int i , int j) {
 		//TODO
-
+		// BORRAR
 // seleccionar el panel i j correspondiente, eliminar todos su componentes, asi elimiamos lo que hay dentro (buscar intenert)
 // añadimos un jlabel centrado no editable y con el numero de minas al rededor, de donde las saco? estan almacenadas en la matriz, el numero de minas se saca de controlJuego del metodo getMinasAlrededor
 		panelesJuego[i][j].remove(botonesJuego[i][j]);
@@ -210,6 +218,13 @@ public class VentanaPrincipal {
 	 * @param porExplosion : Un booleano que indica si es final del juego porque ha explotado una mina (true) o bien porque hemos desactivado todas (false) 
 	 * @post : Todos los botones se desactivan excepto el de volver a iniciar el juego.
 	 */
+
+	 /**
+	  * En este método, queremos mostrar un mensaje mediante un JOption en el caso de que pierdas (si has pulsado una mina) o bien, has ganado (no te has encontrado ninguna mina).
+	  * Para ello, hemos creado este método booleano con una variable, si no ha explotado ninguna mina en ningún momento, has ganado sino, significa que has encontrado una mina, entonces has perdido.
+	  * En ambos casos, cuando finalice la partida, nos recorreremos todo el buscaminas y bloqueremos los botones para que no puedan ser pulsados de nuevo.
+	  * @param porExplosion con esta variable determinamos si ha explotado una mina o no.
+	  */
 	public void mostrarFinJuego(boolean porExplosion) {
 		//TODO
 
@@ -225,10 +240,14 @@ public class VentanaPrincipal {
 			}
 		}
 	}
-
+// ME HE QUEDADO POR AQUIIIIIIIIIIIIIIIIIII
 	/**
 	 * Método que muestra la puntuación por pantalla.
 	 */
+
+	 /**
+	  * En este nétodo, actualizaremos la puntuación que lleves según vayas avanzando en la partida o bien, si reiniciamos la partida poniendo la puntuación a 0
+	  */
 	public void actualizarPuntuacion() {
 		pantallaPuntuacion.setText("" + juego.getPuntuacion());
 	}
