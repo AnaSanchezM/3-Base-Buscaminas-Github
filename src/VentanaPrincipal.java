@@ -246,7 +246,7 @@ public class VentanaPrincipal {
 	 */
 
 	 /**
-	  * En este nétodo, actualizaremos la puntuación que lleves según vayas avanzando en la partida o bien, si reiniciamos la partida poniendo la puntuación a 0
+	  * En este nmétodo, actualizaremos la puntuación que lleves según vayas avanzando en la partida o bien, si reiniciamos la partida poniendo la puntuación a 0
 	  */
 	public void actualizarPuntuacion() {
 		pantallaPuntuacion.setText("" + juego.getPuntuacion());

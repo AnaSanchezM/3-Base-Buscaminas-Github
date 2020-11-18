@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
  * pasando en el constructor la referencia a la ventana. Recuerda que desde la
  * ventana, se puede acceder a la variable de tipo ControlJuego
  * 
- * @author jesusredondogarcia
+ * @author Ana Sánchez Miguel
  **
  */
 public class ActionBoton implements ActionListener {
@@ -19,7 +19,12 @@ public class ActionBoton implements ActionListener {
 	public ActionBoton() {
 
 	}
-
+/**
+ * 
+ * @param vPrincipal Es un objeto de ventana principal.
+ * @param i Posición horizontal del boton que estamos pulsando.
+ * @param j Posición vertical del boton del que estamos pulsando.
+ */
 	public ActionBoton(VentanaPrincipal vPrincipal, int i, int j) {
 		this.vPrincipal = vPrincipal;
 		this.i = i;
@@ -28,6 +33,7 @@ public class ActionBoton implements ActionListener {
 
 	/**
 	 * Acción que ocurrirá cuando pulsamos uno de los botones.
+	 * POR AQUIIIIIII
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
