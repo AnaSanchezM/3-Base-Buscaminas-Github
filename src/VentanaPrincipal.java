@@ -68,9 +68,6 @@ public class VentanaPrincipal {
 		
 		botonEmpezar = new JButton("Go!");
 
-
-
-
 		pantallaPuntuacion = new JTextField("0");
 		pantallaPuntuacion.setEditable(false);
 		pantallaPuntuacion.setHorizontalAlignment(SwingConstants.CENTER);
@@ -156,7 +153,12 @@ public class VentanaPrincipal {
 		}
 
 		// BOTON EMPEZAR, GO
-
+/**
+ * Aqui, queremos cuando finalice la partida, darle al botón de GO y que se reinicie la partida de nuevo,
+ * Para ello, haremos lo siguiente: nos recorremos los paneles de juego y borramos las posiciones, 
+ * 
+ * 
+ */
 		botonEmpezar.addActionListener((e)->{
 			refrescarPantalla();
 			for (int i = 0; i < panelesJuego.length; i++) {
