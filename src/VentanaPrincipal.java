@@ -15,72 +15,70 @@ import javax.swing.SwingConstants;
 
 /**
  * Ventana principal del Buscaminas
+ * 
  * @author Ana Sanchez Miguel
  */
 public class VentanaPrincipal {
 
-	//La ventana principal, en este caso, guarda todos los componentes:
+	// La ventana principal, en este caso, guarda todos los componentes:
 	JFrame ventana;
 	JPanel panelImagen;
 	JPanel panelEmpezar;
 	JPanel panelPuntuacion;
 	JPanel panelJuego;
-	
-	//Todos los botones se meten en un panel independiente.
-	//Hacemos esto para que podamos cambiar después los componentes por otros
-	JPanel [][] panelesJuego;
-	JButton [][] botonesJuego;
-	
-	//Correspondencia de colores para las minas:
-	Color correspondenciaColores [] = {Color.BLACK, Color.CYAN, Color.GREEN, Color.ORANGE, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED};
-	
+
+	// Todos los botones se meten en un panel independiente.
+	// Hacemos esto para que podamos cambiar después los componentes por otros
+	JPanel[][] panelesJuego;
+	JButton[][] botonesJuego;
+
+	// Correspondencia de colores para las minas:
+	Color correspondenciaColores[] = { Color.BLACK, Color.CYAN, Color.GREEN, Color.ORANGE, Color.RED, Color.RED,
+			Color.RED, Color.RED, Color.RED, Color.RED };
+
 	JButton botonEmpezar;
 	JTextField pantallaPuntuacion;
-	
-	
-	//LA VENTANA GUARDA UN CONTROL DE JUEGO:
+
+	// LA VENTANA GUARDA UN CONTROL DE JUEGO:
 	ControlJuego juego;
-	
-	
-	//Constructor, marca el tamaño y el cierre del frame
+
+	// Constructor, marca el tamaño y el cierre del frame
 	public VentanaPrincipal() {
 		ventana = new JFrame();
 		ventana.setBounds(100, 100, 700, 500);
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		juego = new ControlJuego();
 	}
-	
-	//Inicializa todos los componentes del frame
-	public void inicializarComponentes(){
-		
-		//Definimos el layout:
+
+	// Inicializa todos los componentes del frame
+	public void inicializarComponentes() {
+
+		// Definimos el layout:
 		ventana.setLayout(new GridBagLayout());
-		
-		//Inicializamos componentes
+
+		// Inicializamos componentes
 		panelImagen = new JPanel();
 		panelEmpezar = new JPanel();
-		panelEmpezar.setLayout(new GridLayout(1,1));
+		panelEmpezar.setLayout(new GridLayout(1, 1));
 		panelPuntuacion = new JPanel();
-		panelPuntuacion.setLayout(new GridLayout(1,1));
+		panelPuntuacion.setLayout(new GridLayout(1, 1));
 		panelJuego = new JPanel();
-		panelJuego.setLayout(new GridLayout(10,10));
-		
-		
+		panelJuego.setLayout(new GridLayout(10, 10));
+
 		botonEmpezar = new JButton("Go!");
 
 		pantallaPuntuacion = new JTextField("0");
 		pantallaPuntuacion.setEditable(false);
 		pantallaPuntuacion.setHorizontalAlignment(SwingConstants.CENTER);
-		
-		//Bordes y colores:
+
+		// Bordes y colores:
 		panelImagen.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		panelEmpezar.setBorder(BorderFactory.createTitledBorder("Empezar"));
 		panelPuntuacion.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		panelJuego.setBorder(BorderFactory.createTitledBorder("Juego"));
-		
-			
-		//Colocamos los componentes:
-		//AZUL
+
+		// Colocamos los componentes:
+		// AZUL
 		GridBagConstraints settings = new GridBagConstraints();
 		settings.gridx = 0;
 		settings.gridy = 0;
@@ -88,7 +86,7 @@ public class VentanaPrincipal {
 		settings.weighty = 1;
 		settings.fill = GridBagConstraints.BOTH;
 		ventana.add(panelImagen, settings);
-		//VERDE
+		// VERDE
 		settings = new GridBagConstraints();
 		settings.gridx = 1;
 		settings.gridy = 0;
@@ -96,7 +94,7 @@ public class VentanaPrincipal {
 		settings.weighty = 1;
 		settings.fill = GridBagConstraints.BOTH;
 		ventana.add(panelEmpezar, settings);
-		//AMARILLO
+		// AMARILLO
 		settings = new GridBagConstraints();
 		settings.gridx = 2;
 		settings.gridy = 0;
@@ -104,7 +102,7 @@ public class VentanaPrincipal {
 		settings.weighty = 1;
 		settings.fill = GridBagConstraints.BOTH;
 		ventana.add(panelPuntuacion, settings);
-		//ROJO
+		// ROJO
 		settings = new GridBagConstraints();
 		settings.gridx = 0;
 		settings.gridy = 1;
@@ -113,18 +111,18 @@ public class VentanaPrincipal {
 		settings.gridwidth = 3;
 		settings.fill = GridBagConstraints.BOTH;
 		ventana.add(panelJuego, settings);
-		
-		//Paneles
+
+		// Paneles
 		panelesJuego = new JPanel[10][10];
 		for (int i = 0; i < panelesJuego.length; i++) {
 			for (int j = 0; j < panelesJuego[i].length; j++) {
 				panelesJuego[i][j] = new JPanel();
-				panelesJuego[i][j].setLayout(new GridLayout(1,1));
+				panelesJuego[i][j].setLayout(new GridLayout(1, 1));
 				panelJuego.add(panelesJuego[i][j]);
 			}
 		}
-		
-		//Botones
+
+		// Botones
 		botonesJuego = new JButton[10][10];
 		for (int i = 0; i < botonesJuego.length; i++) {
 			for (int j = 0; j < botonesJuego[i].length; j++) {
@@ -132,34 +130,35 @@ public class VentanaPrincipal {
 				panelesJuego[i][j].add(botonesJuego[i][j]);
 			}
 		}
-		
-		//BotónEmpezar:
+
+		// BotónEmpezar:
 		panelEmpezar.add(botonEmpezar);
 		panelPuntuacion.add(pantallaPuntuacion);
-		
+
 	}
-	
+
 	/**
-	 * Método que inicializa todos los lísteners que necesita inicialmente el programa
+	 * Método que inicializa todos los lísteners de los botones para que se abran
+	 * las casillas.
 	 */
-	public void inicializarListeners(){
-		// ddar listener a los botones para que se abran casillas.
+	public void inicializarListeners() {
 
 		for (int i = 0; i < panelesJuego.length; i++) {
 			for (int j = 0; j < panelesJuego.length; j++) {
 				botonesJuego[i][j].addActionListener(new ActionBoton(this, i, j));
-				
+
 			}
 		}
 
 		// BOTON EMPEZAR, GO
-/**
- * Aqui, queremos cuando finalice la partida, darle al botón de GO y que se reinicie la partida de nuevo,
- * Para ello, haremos lo siguiente: nos recorremos los paneles de juego y borramos las posiciones, 
- * 
- * 
- */
-		botonEmpezar.addActionListener((e)->{
+		/**
+		 * Aqui, queremos cuando finalice la partida, darle al botón de GO y que se
+		 * reinicie la partida de nuevo, Para ello, haremos lo siguiente: nos recorremos
+		 * los paneles de juego y borramos las posiciones,
+		 * 
+		 * 
+		 */
+		botonEmpezar.addActionListener((e) -> {
 			refrescarPantalla();
 			for (int i = 0; i < panelesJuego.length; i++) {
 				for (int j = 0; j < panelesJuego.length; j++) {
@@ -176,61 +175,68 @@ public class VentanaPrincipal {
 			actualizarPuntuacion();
 		});
 	}
-	
-	
+
 	/**
-	 * Pinta en la pantalla el número de minas que hay alrededor de la celda
-	 * Saca el botón que haya en la celda determinada y añade un JLabel centrado y no editable con el número de minas alrededor.
-	 * Se pinta el color del texto según la siguiente correspondecia (consultar la variable correspondeciaColor):
-	 * - 0 : negro
-	 * - 1 : cyan
-	 * - 2 : verde
-	 * - 3 : naranja
-	 * - 4 ó más : rojo 
+	 * Pinta en la pantalla el número de minas que hay alrededor de la celda Saca el
+	 * botón que haya en la celda determinada y añade un JLabel centrado y no
+	 * editable con el número de minas alrededor. Se pinta el color del texto según
+	 * la siguiente correspondecia (consultar la variable correspondeciaColor): - 0
+	 * : negro - 1 : cyan - 2 : verde - 3 : naranja - 4 ó más : rojo
+	 * 
 	 * @param i: posición vertical de la celda.
 	 * @param j: posición horizontal de la celda.
 	 */
 
-	 /**
-	  * En este método, queremos saber el número de minas que hay alrededor de la celda que seleccionamos,
-	  * Eliminamos los componentes de los paneles, añadimos las minas que hay alrededor en un label ya que no son editables, 
-	  * Lo centramos y le damos el correspondiente color a cada número, ese número de minas lo sacamos del método getMinasAlrededor() de la clase ControlJuego. A continuación, añadimos a los paneles la variable que almacena las minas alrededor y refrescamos la pantalla.
-	  * @param i el valor de la i, es la posición vertical de la celda.
-	  * @param j el valor de j, es la posición horizontal de la celda.
-	  */
-	public void mostrarNumMinasAlrededor(int i , int j) {
-		//TODO
-		// BORRAR
-// seleccionar el panel i j correspondiente, eliminar todos su componentes, asi elimiamos lo que hay dentro (buscar intenert)
-// añadimos un jlabel centrado no editable y con el numero de minas al rededor, de donde las saco? estan almacenadas en la matriz, el numero de minas se saca de controlJuego del metodo getMinasAlrededor
+	/**
+	 * En este método, queremos saber el número de minas que hay alrededor de la
+	 * celda que seleccionamos, Eliminamos los componentes de los paneles, añadimos
+	 * las minas que hay alrededor en un label ya que no son editables, Lo centramos
+	 * y le damos el correspondiente color a cada número, ese número de minas lo
+	 * sacamos del método getMinasAlrededor() de la clase ControlJuego. A
+	 * continuación, añadimos a los paneles la variable que almacena las minas
+	 * alrededor y refrescamos la pantalla.
+	 * 
+	 * @param i el valor de la i, es la posición vertical de la celda.
+	 * @param j el valor de j, es la posición horizontal de la celda.
+	 */
+	public void mostrarNumMinasAlrededor(int i, int j) {
+
 		panelesJuego[i][j].remove(botonesJuego[i][j]);
 		JLabel numeroMinasAlrededor = new JLabel();
 
 		numeroMinasAlrededor.setHorizontalAlignment(SwingConstants.HORIZONTAL);
 		numeroMinasAlrededor.setText(" " + juego.getMinasAlrededor(i, j));
 		numeroMinasAlrededor.setForeground(correspondenciaColores[juego.getMinasAlrededor(i, j)]);
-		
+
 		panelesJuego[i][j].add(numeroMinasAlrededor);
 		refrescarPantalla();
 	}
-	
-	
+
 	/**
 	 * Muestra una ventana que indica el fin del juego
-	 * @param porExplosion : Un booleano que indica si es final del juego porque ha explotado una mina (true) o bien porque hemos desactivado todas (false) 
-	 * @post : Todos los botones se desactivan excepto el de volver a iniciar el juego.
+	 * 
+	 * @param porExplosion : Un booleano que indica si es final del juego porque ha
+	 *                     explotado una mina (true) o bien porque hemos desactivado
+	 *                     todas (false)
+	 * @post : Todos los botones se desactivan excepto el de volver a iniciar el
+	 *       juego.
 	 */
 
-	 /**
-	  * En este método, queremos mostrar un mensaje mediante un JOption en el caso de que pierdas (si has pulsado una mina) o bien, has ganado (no te has encontrado ninguna mina).
-	  * Para ello, hemos creado este método booleano con una variable, si no ha explotado ninguna mina en ningún momento, has ganado sino, significa que has encontrado una mina, entonces has perdido.
-	  * En ambos casos, cuando finalice la partida, nos recorreremos todo el buscaminas y bloqueremos los botones para que no puedan ser pulsados de nuevo.
-	  * @param porExplosion con esta variable determinamos si ha explotado una mina o no.
-	  */
+	/**
+	 * En este método, queremos mostrar un mensaje mediante un JOption en el caso de
+	 * que pierdas (si has pulsado una mina) o bien, has ganado (no te has
+	 * encontrado ninguna mina). Para ello, hemos creado este método booleano con
+	 * una variable, si no ha explotado ninguna mina en ningún momento, has ganado
+	 * sino, significa que has encontrado una mina, entonces has perdido. En ambos
+	 * casos, cuando finalice la partida, nos recorreremos todo el buscaminas y
+	 * bloqueremos los botones para que no puedan ser pulsados de nuevo.
+	 * 
+	 * @param porExplosion con esta variable determinamos si ha explotado una mina o
+	 *                     no.
+	 */
 	public void mostrarFinJuego(boolean porExplosion) {
-		//TODO
 
-		if(!porExplosion){
+		if (!porExplosion) {
 			JOptionPane.showMessageDialog(ventana, "FIN DE JUEGO, HAS GANADO!!!");
 
 		} else {
@@ -242,28 +248,30 @@ public class VentanaPrincipal {
 			}
 		}
 	}
-// ME HE QUEDADO POR AQUIIIIIIIIIIIIIIIIIII
+
 	/**
 	 * Método que muestra la puntuación por pantalla.
 	 */
 
-	 /**
-	  * En este método, actualizaremos la puntuación que lleves según vayas avanzando en la partida o bien, si reiniciamos la partida poniendo la puntuación a 0
-	  */
+	/**
+	 * En este método, actualizaremos la puntuación que lleves según vayas avanzando
+	 * en la partida o bien, si reiniciamos la partida poniendo la puntuación a 0
+	 */
 	public void actualizarPuntuacion() {
 		pantallaPuntuacion.setText("" + juego.getPuntuacion());
 	}
-	
+
 	/**
 	 * Método para refrescar la pantalla
 	 */
-	public void refrescarPantalla(){
-		ventana.revalidate(); 
+	public void refrescarPantalla() {
+		ventana.revalidate();
 		ventana.repaint();
 	}
 
 	/**
 	 * Método que devuelve el control del juego de una ventana
+	 * 
 	 * @return un ControlJuego con el control del juego de la ventana
 	 */
 	public ControlJuego getJuego() {
@@ -273,10 +281,11 @@ public class VentanaPrincipal {
 	/**
 	 * Método para inicializar el programa
 	 */
-	public void inicializar(){
-		//IMPORTANTE, PRIMERO HACEMOS LA VENTANA VISIBLE Y LUEGO INICIALIZAMOS LOS COMPONENTES.
+	public void inicializar() {
+		// IMPORTANTE, PRIMERO HACEMOS LA VENTANA VISIBLE Y LUEGO INICIALIZAMOS LOS
+		// COMPONENTES.
 		ventana.setVisible(true);
-		inicializarComponentes();	
-		inicializarListeners();		
+		inicializarComponentes();
+		inicializarListeners();
 	}
 }
