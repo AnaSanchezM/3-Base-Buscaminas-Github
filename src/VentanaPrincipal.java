@@ -17,6 +17,11 @@ import javax.swing.SwingConstants;
  * Ventana principal del Buscaminas
  * 
  * @author Ana Sanchez Miguel
+ * @version 1.0
+ * @since 0.9
+ * {@code VentanaPrincipal#inicializar()}
+ * {@link VentanaPrincipal#inicializar()}
+ * @see VentanaPrincipal#juego
  */
 public class VentanaPrincipal {
 
@@ -34,7 +39,7 @@ public class VentanaPrincipal {
 
 	// Correspondencia de colores para las minas:
 	Color correspondenciaColores[] = { Color.BLACK, Color.CYAN, Color.GREEN, Color.ORANGE, Color.RED, Color.RED,
-			Color.RED, Color.RED, Color.RED, Color.RED };
+	Color.RED, Color.RED, Color.RED, Color.RED };
 
 	JButton botonEmpezar;
 	JTextField pantallaPuntuacion;
@@ -280,6 +285,7 @@ public class VentanaPrincipal {
 
 	/**
 	 * Método para inicializar el programa
+	 * 
 	 */
 	public void inicializar() {
 		// IMPORTANTE, PRIMERO HACEMOS LA VENTANA VISIBLE Y LUEGO INICIALIZAMOS LOS
