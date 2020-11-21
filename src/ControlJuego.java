@@ -94,23 +94,20 @@ public class ControlJuego {
 	 **/
 
 	/**
-	 * 
-	 * @param i
-	 * @param j
-	 * @return
+	 * Este método sirve para calcular el número de minas que hay, sabiendo que no debemos salirnos del tablero. 
+	 * Si en una casilla nos encontramos una mina, sumaremos uno al contador de minas que tenemos.
+	 * @param i posición vertical de la casilla.
+	 * @param j posición horizontal de la casilla.
+	 * @return El número de minas que hay alrededor de la casilla.
 	 */
 	private int calculoMinasAdjuntas(int i, int j) {
 		int contMinasAlrededor = 0;
-		int iInicial = Math.max(0, i - 1); // uno mas hacia arriba
-		/*
-		 * if(iInicial>0){ //Para que no sea valor negativo iInicial=0; }
-		 */
+		int iInicial = Math.max(0, i - 1); // siempre será -1 para no salirnos del tablero
+
 		int iFinal = Math.min(LADO_TABLERO - 1, i + 1);
-		;
-		int jInicial = Math.max(0, j - 1);
-		/*
-		 * if(jInicial>0){ //Para que no sea valor negativo jInicial=0; }
-		 */
+		
+		int jInicial = Math.max(0, j - 1); // siempre será -1 para no salirnos del tablero
+
 		int jFinal = Math.min(LADO_TABLERO - 1, j + 1);
 
 		for (int vertical = iInicial; vertical <= iFinal; vertical++) {
