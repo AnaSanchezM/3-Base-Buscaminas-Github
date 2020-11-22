@@ -18,9 +18,8 @@ import javax.swing.SwingConstants;
  * 
  * @author Ana Sanchez Miguel
  * @version 1.0
- * @since 0.9
- * {@code VentanaPrincipal#inicializar()}
- * {@link VentanaPrincipal#inicializar()}
+ * @since 0.9 {@code VentanaPrincipal#inicializar()}
+ *        {@link VentanaPrincipal#inicializar()}
  * @see VentanaPrincipal#juego
  */
 public class VentanaPrincipal {
@@ -39,7 +38,7 @@ public class VentanaPrincipal {
 
 	// Correspondencia de colores para las minas:
 	Color correspondenciaColores[] = { Color.BLACK, Color.CYAN, Color.GREEN, Color.ORANGE, Color.RED, Color.RED,
-	Color.RED, Color.RED, Color.RED, Color.RED };
+			Color.RED, Color.RED, Color.RED, Color.RED };
 
 	JButton botonEmpezar;
 	JTextField pantallaPuntuacion;
@@ -215,6 +214,7 @@ public class VentanaPrincipal {
 
 		panelesJuego[i][j].add(numeroMinasAlrededor);
 		refrescarPantalla();
+
 	}
 
 	/**
