@@ -154,7 +154,7 @@ public class VentanaPrincipal {
 			}
 		}
 
-		// BOTON EMPEZAR, GO
+		// BOTON EMPEZAR, GO:
 		/**
 		 * Aqui, queremos cuando finalice la partida, darle al botón de GO y que se
 		 * reinicie la partida de nuevo, Para ello, haremos lo siguiente: nos recorremos
