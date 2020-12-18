@@ -1,3 +1,5 @@
+package buscaminas;
+
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -18,8 +20,9 @@ import javax.swing.SwingConstants;
  * 
  * @author Ana Sanchez Miguel
  * @version 1.0
- * @since 0.9 {@code VentanaPrincipal#inicializar()}
- *        {@link VentanaPrincipal#inicializar()}
+ * @since 0.9 
+ * {@code VentanaPrincipal#inicializar()}
+ * {@link VentanaPrincipal#inicializar()}
  * @see VentanaPrincipal#juego
  */
 public class VentanaPrincipal {
